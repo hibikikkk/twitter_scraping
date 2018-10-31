@@ -62,7 +62,7 @@ text.write("-------ここから下はいいねの少ない順でソートして�
 for result in search_results:
     userdata.sort(key=lambda x:x[5])
     userdata.reverse()
-    text.write(str(userdata[counter]) + "\n")
+    #text.write(str(userdata[counter]) + "\n")
     text.write("https://twitter.com/" + userdata[counter][0] +"/status/"+ str(userdata[counter][1])  + "\n")
     counter += 1
 
