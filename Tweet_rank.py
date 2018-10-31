@@ -3,17 +3,18 @@ from requests_oauthlib import OAuth1Session # ライブラリ(1)
 from bs4 import BeautifulSoup
 import TwitterAPI
 from twitter import Twitter, OAuth
+import datetime
 import requests
 import tweepy
 import os
 import time
 
 #ツイートのHTML情報取得関数
-#def get_today_embed(twiId,perId):
-#    my_url = "https://twitter.com/";
-#    embed_list = []
-#    embed_list.append(twitter.statuses.oembed(url=my_url + perId + "/status/" + str(twiId))['html'])
-#    return embed_list
+def get_today_embed(twiId,perId):
+    my_url = "https://twitter.com/";
+    embed_list = []
+    embed_list.append(twitter.statuses.oembed(url=my_url + str(perId) + "/status/" + str(twiId))['html'])
+    return embed_list
 
 
 #html取得で使うアクセスアカウント
@@ -36,7 +37,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 #APIインスタンスを作成
 api = tweepy.API(auth)
 #検索キーワード入力
-q = "from:kiyohiro_0728 since:2018-01-01　until:2018-10-29"
+q = "min_retweets:10000 min_faves:2000 lang:ja since:" + str(datetime.date.today())
 #検索件数
 count = 40000
 #検索
@@ -49,7 +50,9 @@ counter = 0
 
 #データ取得処理
 for result in search_results:
-    userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count])
+    if counter == 0:
+        time.sleep(10)
+    userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count,result.favorite_count+(result.retweet_count*3)])
     #データをテキストに出力
     #text.write(str(userdata[counter]) + "\n")
     print(userdata[counter])
@@ -57,13 +60,15 @@ for result in search_results:
 
 
 counter = 0
-text.write("-------ここから下はいいねの少ない順でソートして入力されます------\n")
+text.write("今月のバズったツイートランキング！！\n")
 #データのファボランキングをし、埋め込みHTMlをテキストに保存する処理
 for result in search_results:
-    userdata.sort(key=lambda x:x[5])
+    userdata.sort(key=lambda x:x[6])
     userdata.reverse()
-    #text.write(str(userdata[counter]) + "\n")
+    text.write("ランキング " + str(counter + 1)+"位！！！\n")
+    text.write("点数: " + str(userdata[counter][6]) + "点\n")
     text.write("https://twitter.com/" + userdata[counter][0] +"/status/"+ str(userdata[counter][1])  + "\n")
+#    text.write(str(get_today_embed(result.id,result.user._json['screen_name'])) + "\n")
     counter += 1
 
 

@@ -1,101 +1,31 @@
--------ここから下はいいねの少ない順でソートして入力されます------
-https://twitter.com/kiyohiro_0728/status/1054500418670125056
-https://twitter.com/kiyohiro_0728/status/1054861071775760384
-https://twitter.com/kiyohiro_0728/status/1055227613621321728
-https://twitter.com/kiyohiro_0728/status/1055994590564515840
-https://twitter.com/kiyohiro_0728/status/1055994590564515840
-https://twitter.com/kiyohiro_0728/status/1055114614352969728
-https://twitter.com/kiyohiro_0728/status/1054893007529422849
-https://twitter.com/kiyohiro_0728/status/1054893007529422849
-https://twitter.com/kiyohiro_0728/status/1056522121067692032
-https://twitter.com/kiyohiro_0728/status/1056522121067692032
-https://twitter.com/kiyohiro_0728/status/1055668118599520256
-https://twitter.com/kiyohiro_0728/status/1055668118599520256
-https://twitter.com/kiyohiro_0728/status/1055066789908905984
-https://twitter.com/kiyohiro_0728/status/1056547489589866496
-https://twitter.com/kiyohiro_0728/status/1056546053548208128
-https://twitter.com/kiyohiro_0728/status/1055307970337103875
-https://twitter.com/kiyohiro_0728/status/1056672549738672128
-https://twitter.com/kiyohiro_0728/status/1056660323510276097
-https://twitter.com/kiyohiro_0728/status/1056195364796039168
-https://twitter.com/kiyohiro_0728/status/1056195364796039168
-https://twitter.com/kiyohiro_0728/status/1056660323510276097
-https://twitter.com/kiyohiro_0728/status/1056562850250936322
-https://twitter.com/kiyohiro_0728/status/1054297057605767168
-https://twitter.com/kiyohiro_0728/status/1056013950809104385
-https://twitter.com/kiyohiro_0728/status/1055310463049773056
-https://twitter.com/kiyohiro_0728/status/1055310463049773056
-https://twitter.com/kiyohiro_0728/status/1056013950809104385
-https://twitter.com/kiyohiro_0728/status/1054297057605767168
-https://twitter.com/kiyohiro_0728/status/1054870539393654784
-https://twitter.com/kiyohiro_0728/status/1056563043520278528
-https://twitter.com/kiyohiro_0728/status/1055104926563557376
-https://twitter.com/kiyohiro_0728/status/1056549364993187840
-https://twitter.com/kiyohiro_0728/status/1055305692674842624
-https://twitter.com/kiyohiro_0728/status/1056543444791812101
-https://twitter.com/kiyohiro_0728/status/1055404512729387008
-https://twitter.com/kiyohiro_0728/status/1056489566268350464
-https://twitter.com/kiyohiro_0728/status/1056112886454480896
-https://twitter.com/kiyohiro_0728/status/1056395178133483522
-https://twitter.com/kiyohiro_0728/status/1056434293969321985
-https://twitter.com/kiyohiro_0728/status/1055683101706215424
-https://twitter.com/kiyohiro_0728/status/1056528169392517121
-https://twitter.com/kiyohiro_0728/status/1055318386182283265
-https://twitter.com/kiyohiro_0728/status/1056546189712060417
-https://twitter.com/kiyohiro_0728/status/1055108169305743360
-https://twitter.com/kiyohiro_0728/status/1056562356854022144
-https://twitter.com/kiyohiro_0728/status/1054887570839035904
-https://twitter.com/kiyohiro_0728/status/1056674314970251264
-https://twitter.com/kiyohiro_0728/status/1056680936178245632
-https://twitter.com/kiyohiro_0728/status/1054308626691612672
-https://twitter.com/kiyohiro_0728/status/1056648844836913152
-https://twitter.com/kiyohiro_0728/status/1054373831492612098
-https://twitter.com/kiyohiro_0728/status/1056567440224661504
-https://twitter.com/kiyohiro_0728/status/1054494484770119680
-https://twitter.com/kiyohiro_0728/status/1056561834210148352
-https://twitter.com/kiyohiro_0728/status/1054623054305746945
-https://twitter.com/kiyohiro_0728/status/1056559342659354625
-https://twitter.com/kiyohiro_0728/status/1054855161930108928
-https://twitter.com/kiyohiro_0728/status/1056543502127968256
-https://twitter.com/kiyohiro_0728/status/1054881646673948672
-https://twitter.com/kiyohiro_0728/status/1056511610427080705
-https://twitter.com/kiyohiro_0728/status/1055105464160010241
-https://twitter.com/kiyohiro_0728/status/1056434503260942338
-https://twitter.com/kiyohiro_0728/status/1055108384796532736
-https://twitter.com/kiyohiro_0728/status/1056434472667668481
-https://twitter.com/kiyohiro_0728/status/1055232310218383360
-https://twitter.com/kiyohiro_0728/status/1056129229870522368
-https://twitter.com/kiyohiro_0728/status/1055287264303955968
-https://twitter.com/kiyohiro_0728/status/1056004370343415808
-https://twitter.com/kiyohiro_0728/status/1055457326021275648
-https://twitter.com/kiyohiro_0728/status/1055794502441426945
-https://twitter.com/kiyohiro_0728/status/1055461036038320128
-https://twitter.com/kiyohiro_0728/status/1055791709466984448
-https://twitter.com/kiyohiro_0728/status/1055638481207095296
-https://twitter.com/kiyohiro_0728/status/1055645494351847424
-https://twitter.com/kiyohiro_0728/status/1055668480991621121
-https://twitter.com/kiyohiro_0728/status/1055613635530121216
-https://twitter.com/kiyohiro_0728/status/1055792368530542592
-https://twitter.com/kiyohiro_0728/status/1055457705597390848
-https://twitter.com/kiyohiro_0728/status/1055809340181868544
-https://twitter.com/kiyohiro_0728/status/1055309038764752896
-https://twitter.com/kiyohiro_0728/status/1056031305425514501
-https://twitter.com/kiyohiro_0728/status/1055286695258714112
-https://twitter.com/kiyohiro_0728/status/1056347964463972352
-https://twitter.com/kiyohiro_0728/status/1055113863706771457
-https://twitter.com/kiyohiro_0728/status/1056434493735624704
-https://twitter.com/kiyohiro_0728/status/1055108227522686977
-https://twitter.com/kiyohiro_0728/status/1056434572039086080
-https://twitter.com/kiyohiro_0728/status/1054881739028353026
-https://twitter.com/kiyohiro_0728/status/1056528244571140096
-https://twitter.com/kiyohiro_0728/status/1054856043384123393
-https://twitter.com/kiyohiro_0728/status/1056557791022731265
-https://twitter.com/kiyohiro_0728/status/1054706818578997249
-https://twitter.com/kiyohiro_0728/status/1056560928899051520
-https://twitter.com/kiyohiro_0728/status/1054525245401399297
-https://twitter.com/kiyohiro_0728/status/1056562446364622848
-https://twitter.com/kiyohiro_0728/status/1054384973338173440
-https://twitter.com/kiyohiro_0728/status/1056572849580720129
-https://twitter.com/kiyohiro_0728/status/1054370156585963521
-https://twitter.com/kiyohiro_0728/status/1056672628956573696
-https://twitter.com/kiyohiro_0728/status/1054296942677643265
+今月のバズったツイートランキング！！
+ランキング 1位！！！
+点数: 334427点
+https://twitter.com/akiko_lawson/status/1057452159011250176
+ランキング 2位！！！
+点数: 131259点
+https://twitter.com/toukenmovie2019/status/1057527608689221632
+ランキング 3位！！！
+点数: 86868点
+https://twitter.com/starlightrelive/status/1057467193728757761
+ランキング 4位！！！
+点数: 80015点
+https://twitter.com/bang_dream_gbp/status/1057467259910729728
+ランキング 5位！！！
+点数: 79484点
+https://twitter.com/SSSS_GRIDMAN/status/1057466387407355904
+ランキング 6位！！！
+点数: 67408点
+https://twitter.com/ensemble_stars/status/1057512529486905344
+ランキング 7位！！！
+点数: 62360点
+https://twitter.com/toukenmovie2019/status/1057527898863779842
+ランキング 8位！！！
+点数: 58045点
+https://twitter.com/TOUKEN_STAFF/status/1057558489566867456
+ランキング 9位！！！
+点数: 54382点
+https://twitter.com/imascg_stage/status/1057517077739782145
+ランキング 10位！！！
+点数: 52885点
+https://twitter.com/Haagen_Dazs_JP/status/1057467193825341442
