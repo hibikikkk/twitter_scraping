@@ -1,0 +1,7 @@
+username:'@nanashi_77c '
+engagement:
+	CONSUMER_key: 'nsk0dbVCmwJZUcjSA3iCsQYxa'
+	CONSUMER_sercret: 'HtBZygeCZX20wQo700PQcNsHrtwMsRBUN7gWitf7e9gyTCVNOd'
+	token: '785221365192273920-EdB3nIcz103ADjOhYSbfYsunewqZE3M'
+	token_secret: 'R7RQDBTYJBuxMjSZ2k8b9QpJGH7vjkaJ7mFbjCIHotsfG'
+	url: https://data-api.twitter.com/insights/engagement

@@ -9,11 +9,11 @@ import os
 import time
 
 #ツイートのHTML情報取得関数
-def get_today_embed(twiId,perId):
-    my_url = "https://twitter.com/";
-    embed_list = []
-    embed_list.append(twitter.statuses.oembed(url=my_url + perId + "/status/" + str(twiId))['html'])
-    return embed_list
+#def get_today_embed(twiId,perId):
+#    my_url = "https://twitter.com/";
+#    embed_list = []
+#    embed_list.append(twitter.statuses.oembed(url=my_url + perId + "/status/" + str(twiId))['html'])
+#    return embed_list
 
 
 #html取得で使うアクセスアカウント
@@ -38,7 +38,7 @@ api = tweepy.API(auth)
 #検索キーワード入力
 q = "from:kiyohiro_0728 since:2018-01-01　until:2018-10-29"
 #検索件数
-count = 10
+count = 40000
 #検索
 search_results = api.search(q=q, count=count)
 #結果をテキストに保存
@@ -51,7 +51,7 @@ counter = 0
 for result in search_results:
     userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count])
     #データをテキストに出力
-    text.write(str(userdata[counter]) + "\n")
+    #text.write(str(userdata[counter]) + "\n")
     print(userdata[counter])
     counter += 1
 
@@ -63,8 +63,8 @@ for result in search_results:
     userdata.sort(key=lambda x:x[5])
     userdata.reverse()
     text.write(str(userdata[counter]) + "\n")
-    text.write("ツイートの埋め込みHTML情報:" + str(get_today_embed(userdata[counter][1] ,userdata[counter][0])) + "\n")
+    text.write("https://twitter.com/" + userdata[counter][0] +"/status/"+ str(userdata[counter][1])  + "\n")
     counter += 1
 
- 
+
 text.close()
