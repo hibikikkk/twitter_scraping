@@ -37,7 +37,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 #APIインスタンスを作成
 api = tweepy.API(auth)
 #検索キーワード入力
-q = "min_retweets:10000 min_faves:2000 lang:ja since:" + str(datetime.date.today())
+q = "min_retweets:10000 min_faves:2000 lang:ja"#since: + str(datetime.date.today())
 #検索件数
 count = 40000
 #検索
@@ -50,19 +50,24 @@ counter = 0
 
 #データ取得処理
 for result in search_results:
+    #検索読み込み待機時間
     if counter == 0:
         time.sleep(10)
-    userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count,result.favorite_count+(result.retweet_count*3)])
+        #
+    if not "公式" in result.user.name and  not "公式" in result.user.description and not result.user.verified and not "official" in result.user._json['screen_name']:
+        userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count,result.favorite_count+(result.retweet_count*3)])
+        print(str(userdata[counter])+"\n")
+        print(result.user.description)
+        counter += 1
     #データをテキストに出力
     #text.write(str(userdata[counter]) + "\n")
-    print(userdata[counter])
-    counter += 1
+
 
 
 counter = 0
 text.write("今月のバズったツイートランキング！！\n")
 #データのファボランキングをし、埋め込みHTMlをテキストに保存する処理
-for result in search_results:
+for result in userdata:
     userdata.sort(key=lambda x:x[6])
     userdata.reverse()
     text.write("ランキング " + str(counter + 1)+"位！！！\n")
