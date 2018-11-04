@@ -52,12 +52,17 @@ counter = 0
 for result in search_results:
     #検索読み込み待機時間
     if counter == 0:
-        time.sleep(10)
-        #
-    if not "公式" in result.user.name and  not "公式" in result.user.description and not result.user.verified and not "official" in result.user._json['screen_name']:
+        time.sleep(1)
+
+        if 'media' in result.entities and len(result.extended_entities) > 0:
+            for i in range(len(result.extended_entities)):
+                print(result.extended_entities['media'][i]['media_url'])
+
+
+    if not "公式" in result.user.name and  not "公式" in result.user.description and not result.user.verified and not "official" in result.user._json['screen_name'] and result.user.followers_count - result.user.friends_count <= 10000:
         userdata.append([result.user._json['screen_name'],result.id,result.user.name,result.text,result.created_at,result.favorite_count,result.favorite_count+(result.retweet_count*3)])
-        print(str(userdata[counter])+"\n")
-        print(result.user.description)
+        #print(str(userdata[counter])+"\n")
+        #print(result.user.description)
         counter += 1
     #データをテキストに出力
     #text.write(str(userdata[counter]) + "\n")
