@@ -2,10 +2,10 @@ import MeCab
 import requests
 from bs4 import BeautifulSoup
 
-def scraip():
+def scraip(html):
     result = []
 
-    url = requests.get("https://blog.goo.ne.jp/isehakusandou")
+    url = requests.get(html)
     soup = BeautifulSoup(url.text,"html.parser")
 
     sample1 = soup.find_all("title")
@@ -50,7 +50,6 @@ def scraip():
 
 
     sample8 = soup.find_all("p")
-    print(sample8[0])
     if len(sample8) > 0:
         for counter in range(len(sample8)):
             result.append(sample8[counter])
@@ -79,7 +78,7 @@ def joinList2(mecab):
     joins = []
     for i in range(len(mecab)):
         try:
-            joins.append(mecab[i]+mecab[i+1])
+            joins.append(mecab[i])
         except:
             pass
     return joins
@@ -87,20 +86,57 @@ def joinList2(mecab):
 def delete_joshi(mecab):
     returnItem = []
     for i in mecab:
-        if i == "は" or i == "に" or i == "と" or i == "を" or i == "の" or i == "。"or  i == "、" or i == "です" or i == "この" or i == "その" or i == "あの" or i == "ます" or i == "って" or i == "？" or i == "「" or i == "」" or i == "で" or i == "へ" or i == "»" or i == "な" or i == "う" or i == "ましょ" or i == "これ" or i == "それ" or i == "あれ" or i == "どれ" or i == "ここ" or i == "そこ" or i == "あそこ" or i == "どこ" or i == "こちら" or i == "こっち" or i == "そちら" or i == "そっち" or i == "あちら" or i == "あっち" or i == "どちら" or i == "どっち" or i == "この" or i == "その" or i == "あの" or i == "どの" or i == "こう" or i == "そう" or i == "ああ" or i == "どう" or i == "こんなだ" or i == "そんなだ" or i == "あんなだ" or i == "どんなだ" or i == "・" or i == "し" or i == "ました" or i == "【" or i == "】" or i == "." or i == "*" or i == '"' or i == "'" or i == "が" or i == "て" or i == "こと" or i == "ません" or i == "[" or i == "]" or i == "！" or i == "ません" or i == "した" or i == "という":
-            continue
-        else:
-            returnItem.append(i)
+        if i[1] == "名詞" and i[2] != "":
+            returnItem.append(i[0])
+        elif i[1] == "名詞":
+            returnItem.append(i[0])
+
     return returnItem
 
-scraip()
+def mecab_list(text):
+    m = MeCab.Tagger("-Ochasen")
+    m.parse("")
+    disas = m.parseToNode(text)
+    outputList = []
 
-file_sub = open("copas.text","r")
-file_res = open("result_seo.text","w")
-m = MeCab.Tagger("-Owakati")
-#print(list(m.parse(file_sub.read()).split(" ")))
-for k in sorted(seo_search(joinList2(delete_joshi(list(m.parse(file_sub.read()).split(" "))))).items(), key=lambda x: x[1], reverse=True):
-    file_res.write(str(k) + "\n")
+    while disas:
+        word = disas.surface
+        part = disas.feature.split(',')
+        if part[0] != u'BOS/EOS':
+            if part[6] == None:
+                outputList.append([word,part[0],""])
+            elif part[6] != "*":
+                outputList.append([word,part[0],part[6]])
 
-file_sub.close()
-file_res.close()
+        disas = disas.next
+
+    return outputList
+
+def list_connect(lists):
+    counter = 1
+    connected_list = []
+    for i in lists:
+        try:
+            if i[1] == "名詞" and lists[counter][1] == "名詞":
+                connected_list.append([str(i[0]+lists[counter][0]),"名詞",str(lists[counter][2])])
+
+        except:
+            pass
+
+        counter += 1
+    return  connected_list
+
+if __name__ == "__main__":
+    inputLine = input("URLを入力してください\n")
+    scraip(inputLine)
+
+    file_sub = open("copas.text","r")
+    file_res = open("result_seo.text","w")
+    #print(seo_search(joinList2(delete_joshi(mecab_list(file_sub.read())))))
+
+    for k in sorted(seo_search(joinList2(delete_joshi(list_connect(mecab_list(file_sub.read()))))).items(), key=lambda x: x[1], reverse=True):
+        print(k)
+        file_res.write(str(k) + "\n")
+
+    file_sub.close()
+    file_res.close()
