@@ -117,11 +117,16 @@ def list_connect(lists):
     connected_list = []
     for i in lists:
         try:
-            if i[1] == "名詞" and lists[counter][1] == "名詞":
+            if i[1] == "名詞" and lists[counter][1] == "名詞" and lists[counter+1][1] == "名詞":
+                connected_list.append([str(i[0]+lists[counter][0]+lists[counter+1][0]),"名詞",str(lists[counter][2])])
+
+            elif i[1] == "名詞" and lists[counter][1] == "名詞":
                 connected_list.append([str(i[0]+lists[counter][0]),"名詞",str(lists[counter][2])])
+            #else:
+                #connected_list.append(i)
 
         except:
-            pass
+            connected_list.append(i)
 
         counter += 1
     return  connected_list
