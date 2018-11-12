@@ -37,7 +37,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 #APIインスタンスを作成
 api = tweepy.API(auth)
 #検索キーワード入力
-q = "min_retweets:10000 min_faves:2000 lang:ja"#since: + str(datetime.date.today())
+q = "min_retweets:10000 min_faves:2000 lang:ja" #11since: + str(datetime.date.yesterday())
 #検索件数
 count = 40000
 #検索
@@ -80,6 +80,7 @@ for result in userdata:
     text.write("https://twitter.com/" + userdata[counter][0] +"/status/"+ str(userdata[counter][1])  + "\n")
 #    text.write(str(get_today_embed(result.id,result.user._json['screen_name'])) + "\n")
     counter += 1
+    print(type(result[4]))
 
 
 text.close()

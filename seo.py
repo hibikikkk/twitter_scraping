@@ -1,12 +1,16 @@
 import MeCab
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def scraip(html):
     result = []
 
     url = requests.get(html)
-    soup = BeautifulSoup(url.text,"html.parser")
+    soup = BeautifulSoup(url.content,"html.parser")
 
     sample1 = soup.find_all("title")
     if len(sample1) > 0:
@@ -60,9 +64,11 @@ def scraip(html):
     for i in range(len(result)):
         file.write(result[i].text+"\n")
 
+
     file.close()
 
 def seo_search(wakati):
+    print("ここはseo_searchの中の" + str(wakati))
     sub_dict = {}
     for i in range(len(wakati)):
         if sub_dict.get(str(wakati[i])) == None:
@@ -75,15 +81,18 @@ def seo_search(wakati):
     return sub_dict
 
 def joinList2(mecab):
+    print("ここはjoinList2の中の" + str(mecab))
     joins = []
     for i in range(len(mecab)):
         try:
             joins.append(mecab[i])
         except:
             pass
+
     return joins
 
 def delete_joshi(mecab):
+    print("ここはdelete_joshiの中の" + str(mecab))
     returnItem = []
     for i in mecab:
         if i[1] == "名詞" and i[2] != "":
@@ -107,9 +116,10 @@ def mecab_list(text):
                 outputList.append([word,part[0],""])
             elif part[6] != "*":
                 outputList.append([word,part[0],part[6]])
+            else:
+                outputList.append([word,part[0],""])
 
         disas = disas.next
-
     return outputList
 
 def list_connect(lists):
@@ -118,10 +128,10 @@ def list_connect(lists):
     for i in lists:
         try:
             if i[1] == "名詞" and lists[counter][1] == "名詞" and lists[counter+1][1] == "名詞":
-                connected_list.append([str(i[0]+lists[counter][0]+lists[counter+1][0]),"名詞",str(lists[counter][2])])
+                connected_list.append([str(i[0]+lists[counter][0]+lists[counter+1][0]),"名詞",str(i[2]+lists[counter][2]+lists[counter+1][2])])
 
             elif i[1] == "名詞" and lists[counter][1] == "名詞":
-                connected_list.append([str(i[0]+lists[counter][0]),"名詞",str(lists[counter][2])])
+                connected_list.append([str(i[0]+lists[counter][0]),"名詞",str(i[2]+lists[counter][2])])
             #else:
                 #connected_list.append(i)
 
@@ -132,16 +142,28 @@ def list_connect(lists):
     return  connected_list
 
 if __name__ == "__main__":
+    sub = []
+    graph_num = []
+    graph_word = []
     inputLine = input("URLを入力してください\n")
     scraip(inputLine)
 
     file_sub = open("copas.text","r")
-    file_res = open("result_seo.text","w")
+    print(type(file_sub))
+    text = file_sub.read()
+    print("抽出結果は\n"+text)
     #print(seo_search(joinList2(delete_joshi(mecab_list(file_sub.read())))))
 
-    for k in sorted(seo_search(joinList2(delete_joshi(list_connect(mecab_list(file_sub.read()))))).items(), key=lambda x: x[1], reverse=True):
-        print(k)
-        file_res.write(str(k) + "\n")
+    for k in sorted(seo_search(joinList2(delete_joshi(list_connect(mecab_list(text))))).items(), key=lambda x: x[1], reverse=True):
+        sub.append(list(k))
+        if k[1] > 3:
+            graph_num.append(k[1])
+            graph_word.append(k[0])
 
+    df = pd.DataFrame(sub,columns=["word","number"])
+    df.to_csv("result_seo.csv")
     file_sub.close()
-    file_res.close()
+
+
+    plt.pie(np.array(graph_num),labels=graph_word,counterclock=False, startangle=90,wedgeprops={'linewidth': 3, 'edgecolor':"white"},autopct="%1.1f%%")
+    plt.show()
