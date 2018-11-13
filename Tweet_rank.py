@@ -1,5 +1,6 @@
 import urllib.request
 from requests_oauthlib import OAuth1Session # ライブラリ(1)
+import pandas as pd
 from bs4 import BeautifulSoup
 import TwitterAPI
 from twitter import Twitter, OAuth
@@ -16,20 +17,12 @@ def get_today_embed(twiId,perId):
     embed_list.append(twitter.statuses.oembed(url=my_url + str(perId) + "/status/" + str(twiId))['html'])
     return embed_list
 
-
-#html取得で使うアクセスアカウント
-twitter = Twitter(auth=OAuth(
-        consumer_key='nsk0dbVCmwJZUcjSA3iCsQYxa',
-        consumer_secret='HtBZygeCZX20wQo700PQcNsHrtwMsRBUN7gWitf7e9gyTCVNOd',
-        token='785221365192273920-EdB3nIcz103ADjOhYSbfYsunewqZE3M',
-        token_secret='R7RQDBTYJBuxMjSZ2k8b9QpJGH7vjkaJ7mFbjCIHotsfG'
-    ))
-
 #ツイート情報取得で使うアクセスアカウント
-CONSUMER_KEY = 'nsk0dbVCmwJZUcjSA3iCsQYxa'
-CONSUMER_SECRET = 'HtBZygeCZX20wQo700PQcNsHrtwMsRBUN7gWitf7e9gyTCVNOd'
-ACCESS_TOKEN = '785221365192273920-EdB3nIcz103ADjOhYSbfYsunewqZE3M'
-ACCESS_SECRET = 'R7RQDBTYJBuxMjSZ2k8b9QpJGH7vjkaJ7mFbjCIHotsfG'
+keys = pd.read_csv("/Users/kudouhibiki/Desktop/python_program/twitter_keys.csv")
+CONSUMER_KEY = keys['keys'][0]
+CONSUMER_SECRET = keys['keys'][1]
+ACCESS_TOKEN = keys['keys'][2]
+ACCESS_SECRET = keys['keys'][3]
 
 #アクセス処理
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
